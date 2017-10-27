@@ -1,13 +1,12 @@
 package com.maven.init.maven_app;
 
-/**
- * Hello world!
- *
- */
+import org.apache.commons.lang3.StringUtils;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println("Is num3ric, numeric?");
+        System.out.println(StringUtils.isNumeric("num3ric") + "#StringUtils");
     }
 }
