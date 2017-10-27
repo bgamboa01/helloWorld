@@ -6,7 +6,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println("Is num3ric, numeric?");
-        System.out.println(StringUtils.isNumeric("num3ric") + "#StringUtils");
+        System.out.println("Is 'num3ric', numeric? ");
+        System.out.print(StringUtils.isNumeric("num3ric") + " #StringUtils");
     }
 }

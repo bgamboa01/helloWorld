@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.maven.init</groupId>
+  <groupId>com.maven.init.maven_app</groupId>
   <artifactId>maven-app</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>maven-app</name>
@@ -27,4 +27,45 @@
     	<version>3.0</version>
     </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+	  	<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>2.4</version>
+			<configuration>
+			  <archive>
+			    <manifest>
+				<addClasspath>true</addClasspath>
+				<mainClass>com.maven.init.maven_app.App</mainClass>
+				<classpathPrefix>dependency-jars/</classpathPrefix>
+			    </manifest>
+			  </archive>
+			</configuration>
+		  </plugin>
+		
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-dependency-plugin</artifactId>
+			<version>2.5.1</version>
+			<executions>
+			  <execution>
+				<id>copy-dependencies</id>
+				<phase>package</phase>
+				<goals>
+				    <goal>copy-dependencies</goal>
+				</goals>
+				<configuration>
+				    <outputDirectory>
+			                          ${project.build.directory}/dependency-jars/
+			                    </outputDirectory>
+				</configuration>
+			    </execution>
+			</executions>
+	 	</plugin>
+    </plugins>
+  </build>
+  
+	  
 </project>
